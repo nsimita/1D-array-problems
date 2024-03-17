@@ -1,0 +1,29 @@
+ 
+#include <stdio.h>
+
+int main()
+{
+    int a[100];
+    int i,j,n;
+    scanf("%d",&n);
+    for(i=0; i<n; i++)  {
+        scanf("%d",&a[i]);
+    }
+    for(i=0; i<n; i++)/*check repeated number*/{
+        for(j=i+1; j<n;j++)/*check if the next element is repeated number or not*/{
+            if(a[i]==a[j])/* if the element is repeated then*/{
+                for(int k=j; k<n-1; k++){
+                    a[k]=a[k+1] /*remove repeated number*/;
+                }
+                n--; 
+                j--;
+            }
+            
+        }
+    }
+    for(i=0; i<n; i++){
+        printf("%d ",a[i]);
+    }
+
+    return 0;
+}
